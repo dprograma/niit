@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#display").click(function(){
+				$.ajax({
+					type:"POST",
+					url:"getmydata.php",
+					datatype:"html",
+					success: function(response){
+						$("#responsecontainer").html(response);
+					}
+				});
+			});
+		});
+	</script>
+
+</head>
+<body>
+<h3 align="center">User Info</h3>
+<table border="0" align="center">
+	<tr>
+		<td><input type="button" name="display" id="display" value="display data"></td>
+	</tr>
+</table>
+<div id="responsecontainer" align="center"></div>
+</body>
+</html>
